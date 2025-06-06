@@ -15,7 +15,7 @@ Because I wanted a player that was similar to the classic cplay, but more visual
 
 Install Instructions (Mint/Ubuntu/Debian):
 -------------------------------------------------------------------------------
-1. Extract/uncompress mplay.zip and open a terminal in the mplay directory.
+1. Download ![mplay.zip](https://github.com/unpythonic-coder/mplay/archive/refs/heads/main.zip), extraxt/unzip it and open a terminal in the mplay directory.
 
 2. To make mplay executable, enter the command:
 
