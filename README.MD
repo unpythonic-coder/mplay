@@ -5,15 +5,16 @@ Released in 2025 by Unpythonic-coder, MIT License
 
 <br/>
 
-###So why another music player?
+So why another music player?
+-------------------------------------------------------------------------------
 Because I wanted a player that was similar to the classic cplay, but more visually appealing, with themes and screensavers, and  could play just about any audio file, including tracker formats and midi. And as a musician, I wanted a player that I could use to audition my own songs and samples, and then launch them directly into Audacity, Milkytracker, or LMMS.
 
 ![screenshot](screenshot.png)
 
 <br/>
 
-## Install Instructions (Mint/Ubuntu/Debian):
-
+Install Instructions (Mint/Ubuntu/Debian):
+-------------------------------------------------------------------------------
 1. Extract/uncompress mplay.zip and open a terminal in the mplay directory.
 
 2. To make mplay executable, enter the command:
@@ -38,8 +39,8 @@ directories, press 'Q' to quit, then copy net_radio.m3u:
 	    cp net_radio.m3u ~/.config/mplay/playlists/net_radio.m3u
 <br/>
 
-##Optional Dependencies
-
+Optional Dependencies
+-------------------------------------------------------------------------------
 1. If you want midi support, you will need to install timidity:
 
 	    sudo apt install timidity
@@ -79,8 +80,8 @@ extension. This can be slow, so only use if neccessary.
 
 <br/>
 
-##TROUBLESHOOTING INSTALL ISSUES
-
+TROUBLESHOOTING INSTALL ISSUES
+-------------------------------------------------------------------------------
 1. When first playing a song, if you see random text referring to "conf.c",
 you likely need to install the pipewire libraries:
 
@@ -94,8 +95,8 @@ files still won't play, you may need to install pulseaudio:
 
 <br/>
 
-##BASIC USAGE
-
+BASIC USAGE
+-------------------------------------------------------------------------------
 To launch, type mplay in a terminal and press ENTER.
 Press 'h' to toggle a list of frequently used commands.
 Navigate with arrow keys and play music/change directories with ENTER.
@@ -124,8 +125,8 @@ For more complete instructions on using mplay, see [ABOUT_KEYBINDINGS.txt](ABOUT
 
 <br/>
 
-##Crash Recovery
-
+Crash Recovery
+-------------------------------------------------------------------------------
 In the unlikely event of a crash, or if you force quit mplay, you can stop any
 zombie processes by running:
 
