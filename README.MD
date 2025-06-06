@@ -9,7 +9,7 @@ So why another music player?
 -------------------------------------------------------------------------------
 Because I wanted a player that was similar to the classic cplay, but more visually appealing, with themes and screensavers, and  could play just about any audio file, including tracker formats and midi. And as a musician, I wanted a player that I could use to audition my own songs and samples, and then launch them directly into Audacity, Milkytracker, or LMMS.
 
-![screenshot](screenshot_scale50.png)
+![screenshot](screenshot.png)
 
 <br/>
 
