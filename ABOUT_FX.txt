@@ -1,0 +1,75 @@
+AUDIO EFFECTS (FX)
+========================================================================
+Mplay includes several audio effects. These FX can be used to enhance or
+distort your sound.
+
+Note: FX may increase volume or cause glitching, be very careful,
+especially if using headphones. Turn down the volume before testing FX
+and FX chains.
+
+Included FX:
+
+bitcrush        - reduce the bits (mild)
+bitcrush2       - noisy bitcrusher
+bitcrush3       - phasing bitcrusher
+broken          - metallic and glitchy
+chorus          - fattens the sound
+crystal         - crystalize the sound
+ear-saver       - reduces frequencies around 1500 to prevent ear fatigue
+echo            - minor echo
+echo2           - more echo
+eq-boost-high   - boost high frequencies
+eq-boost-low    - boost low end
+eq-boost-mid    - boost mid range
+eq-cut-high     - cut high
+eq-cut-low      - cut low (removes bass)
+eq-cut-mid      - cut mid range
+exciter         - creates a crisper sound by generating upper frequencies
+exciter2        - more extreme version of above
+flanger         - create that flange sound
+grunge          - makes sound grungier
+highcut         - cuts high freq
+highpass        - only plays high freq
+limiter         - in theory, prevents a sound from playing too loud
+lowcut          - cuts bass
+lowpass         - only allows low frequencies
+normalize       - normalizes audio so songs will play at a consistent level
+phaser          - that classic phaser sound
+phaser2         - more extreme phaser
+pitch-down      - plays audio at a lower pitch
+pitch-up        - plays audio at a higher patch
+reverb          - makes sound more spacious
+reverb2         - stronger reverb
+tape            - sounds like old warping tape. Good with grunge.
+tempo-down      - plays audio slower
+tempo-up        - plays audio faster
+tremolo         - volume goes up and down
+vibrato         - pitch up and down
+vibrato2        - stronger vibrato
+widen           - widens stereo image
+
+These effects can be set via command entry by pressing 'C' (shift 'c'):
+
+    fx=normalize
+
+You can chain up to four fx:
+
+    fx = normalize+reverb+tape+grunge
+
+To turn off fx:
+
+    fx=none
+
+Note: FX don't work on midi files.
+
+FX are based on FFMPEG audio filters. You can create your own FX using the
+af command, but this isn't for the faint at heart. Note that af commands
+replace any fx you already have.
+
+    af=aecho=0.8:0.9:500|1000:0.3|0.25
+
+If audio fails to play, your af command is not formulated properly.
+Reset audio filters via:
+
+    af=none
+

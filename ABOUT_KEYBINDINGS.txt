@@ -1,0 +1,265 @@
+MPLAY KEYBINDINGS
+===============================================================================
+I tried to keep many of the classic cplay keybindings, but ultimately some
+were changed/replaced to add new features.
+And note that case matters. Except in a few cases when it doesn't.
+
+
+PLAYBACK
+===============================================================================
+ENTER           play selected song
+
+p               long press to play selected song
+
+> or .          play next song
+
+< or ,          play previous song
+
+z or p          pause playback (stops midi)
+
+x               stops playback
+
+
+NAVIGATION
+===============================================================================
+ENTER          open selected directory
+
+BACKSPACE      moves up one directory
+
+UP or k        move selector up
+
+DOWN or j      move selector down
+
+PG UP or K     move up one page
+
+PG DN or J     move down one page
+
+HOME           move to start of list (Control 'h' also works)
+
+END            move to end of list (Control 'e' also works)
+
+LEFT           seeks backward (if audio format supports it)
+
+RIGHT          seeks forward (can't seek midi or mod/tracker)
+
+g              input a directory and go to it
+               -can be a full path, but will attempt to find dir names as well
+               -searches shorter than 3 characters act like 'find'
+               -press up arrow to cancel input (works with most input fields)
+
+F              find file or directory in current directory (ignores case)
+
+G              find again
+
+M              Jump to Music directory (can be set in mplay.config)
+
+H              Jump to Home directory
+
+P              Jump to Playlist directory (~/.config/mplay/playlists)
+
+
+PLAYLIST MANAGEMENT
+===============================================================================
+TAB            toggles between filelist and playlist
+
+a              from filelist, appends selected file(s) or directory
+               -if files are marked, acts on them rather than current selection
+
+SPACE or m     marks/selects files. Will also unmark marked files.
+               -and automatically moves selector down
+
+i              Inverts marked/selection. Unlike cplay, it will not mark
+               directories
+
+D or DELETE    In playlist mode, deletes marked from playlist
+               -if nothing marked, deletes file at current position
+               -confirmation is optional and can be set in mplay.config
+
+U              Unmark all files
+
+{ and }        Moves CURRENTLY selected item up or down (not marked)
+
+W              Write playlist (it will ask for confirmation and filename)
+
+S              Shuffle playlist
+
+M              Toggles play mode between play-all, oneshot, and random.
+               -I recommend using oneshot when auditioning short audio samples
+
+L              Toggles playlist looping on and off.
+
+E              Erase playlist
+
+
+SORTING and FILTERING
+===============================================================================
+n              Sort by filename (ignores case)
+               -pressing again reverses list
+
+t              Sort by song title
+               -sorts by filename if metadata isn't available
+
+s              Sort by size
+               -directories sorted by readable file count, not overall size
+
+d              Sort by modification date
+
+u              Sort by dUration
+               -will not be accurate until metadata has fully loaded
+
+r              Reverses sort
+
+R              Playlist mode only: sorts by aRtist
+
+P              Playlist mode only: sorts by Playlist position
+               -newly created playlists do not have position data
+               -playlist must be saved or opened first
+
+f              Input text to filter files or playlist (ignores case)
+               -filter WILL search metadata if available
+               -can limit search to specific field
+                   possible choices: name, title, album, artist, genre, year
+                   example: year=1995
+               -use '=' for includes, '!' for does not include
+                   example: title!chrono
+               -BACKSPACE exits filter
+
+
+APPEARANCE
+===============================================================================
+To further customize mplay's appearance, edit ~/.config/mplay/mplay.config
+And check out the command line args with: mplay --help
+===============================================================================
+l              change list mode (moves forward)
+               -toggles between names, paths, file info
+               -and metadata, if you have it switched on
+               -custom views can be created via mplay.config
+
+;              change list mode (moves backward)
+
+c              Toggle playback count between remaining time and elapsed time
+
+1-8            Change theme to one of 8 builtin themes.
+               -themes have default colors, but these can be overridden
+
+( and )        Cycle thru color overrides
+
+`              Change to custom theme
+               -color overrides do NOT affect custom themes
+
+T              Reset themes (turn off color overrides)
+
+! (shift 1)    Set screensaver to 'eink'
+               -text dances on screen without obscuring your playlist
+
+@ (shift 2)    Set screensaver to 'modem'
+               -slowly loads metadata (including comments) while song plays
+               -Works well with mod/tracker files (if mplay is using ffprobe)
+
+# (shift 3)    Set screensaver to 'matrix'
+               -still a classic
+
+$ (shift 4)    Set screensaver to 'khaos'
+               -pseudo visualizer using the matrix particle engine
+               -looks better on large terminals
+
+% (shift 5)    Set screensaver to 'plankton'
+               -cyber plankton swim across the screen
+
+^ (shift 6)    Set screensaver to 'tetragon'
+               -tetragons everywhere
+               -the final screensaver created for mplay, and maybe the best
+
+& (shift 7)    Set screensaver to 'rave'
+               -lasers and flashing lights
+
+* (shift 8)    Set screensaver to 'pixels'
+               -large pixels move across top and bottom of screen
+
+f              Hides the screensaver footer on sync targets
+
+
+TAGGING (requires music-tag)
+===============================================================================
+control T      Add title tag to currently selected file (not marked)
+               -You can't apply title to multiple files at once
+
+control R      Add artist tag to marked files or currently selected
+               -will ask for confirmation if multiple files marked
+
+control A      Add album tag to marked files or currently selected
+
+control G      Add genre tag to marked files or currently selected
+
+control Y      Add year tag to marked files or currently selected
+               -due to an apparent bug, year may not save for mp3 files
+
+I (shift i)    View album art for currently selected file (not marked)
+               -Album art can't be added from mplay, but can be viewed
+               -this launches your default image viewer
+
+
+MISC COMMANDS
+===============================================================================
+h             toggle help
+
+R             Reload directory (filelist only)
+
+q             Confirm and quit
+
+Q             Quit now
+
+
+BONUS FEATURES
+===============================================================================
+O (shift o)    Open selected audio file in either (a)udacity or (m)ilkytracker
+               -Obviously, this would require audacity and milkytracker
+               -if file is midi, and lmms installed, can also open in (l)mms
+
+/              Toggle record for net radio streams (requires streamripper)
+               -records the currently playing radio channel/stream
+               -will record up to 1 GB and then stop
+               -otherwise, it won't stop until you cancel recording
+               or quit mplay
+               -if mplay crashes during recording,
+               run 'mplay --kill' to force it to stop
+               -and if that doesn't kill streamripper, try:
+                    pkill streamripper
+               -note that not all streams support recording
+
+?              Toggle the stat bar if screensaver is playing
+               -if not, it activates the screensaver
+               -stat bar requires "psutil"
+
+|              Loads midi config that you input(requires timidity)
+               -to return to default midi config, enter 'default' or 'none'
+               -this requires a bit of setup to work properly
+               -add soundfonts to ~/.config/mplay/timidity/soundfonts
+               -then create timidity config files that point to the soundfonts
+               (one config file per soundfont)
+               -example of timidity config:
+                    dir ~/.config/mplay/timidity/soundfonts
+                    soundfont FluidR3_GM.sf2
+               -and give them short names and save to ~/.config/mplay/timidity
+
+\ or INSERT    Apply current midi config to playlist file(s)
+               -allows you to set different soundfonts for each midi file
+               -change (l)ist mode to "names" to see assigned midi config
+               -and remember to write the playlist if you want to save changes
+
+C (shift c)    Command Entry
+               -This allows you to access features that don't have a keybinding
+               -and allows you to control the player when kiosk mode is on
+               -some of these features are experimental
+               -commands are always in the form of "command=argument"
+               -examples:
+                    kiosk=off
+                    fx=normalize
+                    color=green_on_black
+               -additional screensavers can be accessed this way
+               -examples:
+                    screensaver=frame
+
+               -Read ABOUT_COMMANDS.txt for more information on commands
+               -Read ABOUT_FX.txt for more information on FX chains
+

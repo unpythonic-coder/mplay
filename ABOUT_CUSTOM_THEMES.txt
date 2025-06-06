@@ -1,0 +1,36 @@
+CUSTOM THEMES
+========================================================================
+To further customize mplay, modify the custom theme settings located in:
+~/.config/mplay/mplay.config
+
+Custom themes can use the following format:
+
+    COLOR
+    COLOR+STYLE1
+    COLOR+STYLE1+STYLE2
+    COLOR+STYLE1+STYLE2+STYLE3
+
+custom_theme_style_main is required, the rest are optional
+-missing elements will draw from custom_theme_syle_main
+
+To see a list of possible colors, run:
+    mplay --color=?
+
+Note that YELLOW-ON-BLACK and BLACK-ON-YELLOW+REVERSE may render
+entirely different shades, depending on the terminal you are using.
+-especially when paired with DIM or BOLD
+
+Possible styles are:
+    NORMAL, DIM, BOLD, STANDOUT, REVERSE, UNDERLINE, BLINK, ITALIC, LOW
+
+-Some of these styles may not be supported by your terminal
+
+Example Theme
+========================================================================
+custom_theme_style_main = BLACK-ON-YELLOW
+custom_theme_style_header = GREEN-ON-BLACK+BOLD+REVERSE
+custom_theme_style_bars = RED-ON-GREEN+DIM+REVERSE
+custom_theme_style_selected = BLACK-ON-YELLOW+BOLD+REVERSE
+custom_theme_style_playing = BLACK-ON-YELLOW+BOLD+UNDERLINE
+custom_theme_style_icons = RED-ON-YELLOW+DIM+REVERSE
+

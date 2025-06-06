@@ -1,0 +1,44 @@
+CUSTOM VIEWS
+========================================================================
+
+If you have configured mplay to use metadata, you can 
+create your own custom views by editing mplay.config,
+located at: "~/.config/mplay"
+
+You can specify attributes such as title, artist, album, duration, genre, ext, 
+hr_size, and more.
+
+-some attributes can be combined, such as title_and_year or title_and_artist.
+-sep, block, and vert allow you to put separators between columns.
+
+Custom view elements are in the form of: attribute,alignment,offset
+(offset is optional).
+
+Possible alignments include: left, quarter, third, center, twothirds, right,
+justify-left, justify-right, justify-center.
+
+In general, custom views should be defined from left to right for them to be
+displayed properly, but this is less important if you are only using
+justify-left, justify-right, and justify-center.
+
+Note: if your custom view has many elements, they will not all be displayed
+unless you are using a wide terminal.
+
+Offsets are added to this alignment. Positive numbers shift the alignment
+right, negative numbers shift left.
+
+Example:
+
+custom_view2_element1 = duration,justify-left
+custom_view2_element2 = sep,left,9
+custom_view2_element3 = ext,left,10
+custom_view2_element4 = sep,left,17
+custom_view2_element5 = hr_size,left,18
+custom_view2_element6 = sep,left,31
+custom_view2_element7 = block,left,32
+custom_view2_element8 = title_and_artist,justify-right
+
+Note: element7 + element8 is basically trick usage. We are filling the
+right side of the screen with blocks and element8 doesn't overwrite it since
+it is aligned via justify-right.
+

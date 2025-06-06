@@ -1,0 +1,102 @@
+#--ABOUT_CONFIG_FILE
+#--=============================================================================
+#--A sample config file
+#--I'll add comments before settings that may need explanation
+
+#--The default directory when launching mplay
+start_directory = ~/Music
+
+#--This is the directory you switch to after pressing M (shift m)
+music_directory = ~/Music
+
+use_color = True
+
+#--Default theme can be 0 to 8. 0 is the custom theme.
+default_theme = 1
+
+#--The default color for all themes except custom.
+#--Run "mplay --color=?" for a list of color overrides
+#--Leave it as None for each theme to keep it's default color
+color_override = None
+
+#--Default list view, can be names, paths, file_info, metadata, custom1, etc.
+default_view = None
+
+#--Shows directory size (number of readable files)
+show_dir_size = True
+
+#--I recommend using both of these if you wish to see tags/metadata
+#--musictag will increase the time it takes to open a playlist or directory
+#--musictag is required if you wish to write tags in mplay
+#--ffprobe runs in the background but may take a while to load metadata
+#--ffprobe is required to see metadata for MOD and other tracker formats
+#--(much of the tracker data is being parsed from the comment field)
+#--Note that midi has no metadata
+get_meta_with_musictag = True
+get_meta_with_ffprobe = True
+
+#--Add support for audio formats that mplay doesn't recognize by default
+#--Once added to the whitelist, mplay can play anything supported by mpv/FFMPEG
+add_support_for = alac,opus
+
+#--Larger numbers reduce cpu usage
+#--You shouldn't need to increase this unless your pc is more than 12 years old
+#--On my old dual core Thinkpad, I set this to 0.02
+app_delay = 0.01
+
+#--You can paste unicode characters to use with mplay
+#--or change to plain text if your terminal doesn't support unicode
+playing_char = ▶
+marked_char = ▣
+
+#--When set to True, selector automatically moves to current song in playlist
+index_follow_playlist = True
+
+confirm_before_delete = True
+
+#--Allows you to play and pause music with the spacebar
+#--Long press to play newly selected song
+#--This simply remaps the 'p' button to SPACE
+#--You can still mark music with 'm'
+spacebar_play_or_pause = False
+
+#--Set the default screensaver and the screensaver activation time
+screensaver = 1
+screensaver_time = 45
+
+#--fps effects screensaver speed
+#--But generally better to use the speed command in mplay instead
+fps = 60
+
+#--Set this to False if you want mplay to scroll (like cplay did)
+#--Note that scrolling was a late addition and has not been properly tested
+pageflip = True
+
+#--Detects capslock and prevents certain tasks from activating if pressed
+detect_capslock = True
+
+#--Makes text entry fields standout more than normal
+entry_standout = False
+
+#--Makes errors dance, again to make them standout more
+dancing_errors = False
+
+#--Logs information for all songs while streaming
+#--You may want to manually delete this file if it gets too large
+#--located in ~/.config/mplay/logs
+streaming_log = True
+
+#--See ABOUT_CUSTOM_VIEWS.txt for more information
+custom_view1_element1 = duration,justify-left
+custom_view1_element2 = sep,left,9
+custom_view1_element3 = title_and_year,left,10
+custom_view1_element4 = artist_and_ext,justify-right
+
+#--See ABOUT_CUSTOM_THEMES.txt for more information
+custom_theme_style_main = None
+custom_theme_style_header = None
+custom_theme_style_bars = None
+custom_theme_style_selected = None
+custom_theme_style_playing = None
+custom_theme_style_icons = None
+

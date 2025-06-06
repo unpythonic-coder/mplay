@@ -1,0 +1,257 @@
+MPLAY COMMAND ENTRY
+===============================================================================
+-Press 'C' (shift c) to open command entry
+-This allows you to access mplay features that don't have a keybinding
+-and allows you to control the player when kiosk mode is enabled
+-some of these features are experimental
+-commands are always in the form of "command=argument"
+-commands have a session history; use the up/down arrows to choose
+previously used commands, which can then be edited
+-most commands that take true/false will accept true/on/yes for positive
+values, and false/off/no/none for negative values
+
+COMMANDS
+===============================================================================
+af (or audio-filter)    -manually create a ffmpeg audio filter (audio fx)
+                        -see ABOUT_FX.txt for more information
+                        -af=none will turn off fx
+
+auto-reset              -auto-reset=on/off to toggle screensaver auto-reset
+                        -this automatically resets all screensaver hacks when
+                        the screensaver is changed
+                        -auto-reset=off plus screensaver=random will make
+                        screensavers even more random, effectively generating
+                        new screensavers
+
+bounce                  -bounce=on/off to toggle particle bounce used by some
+                        screensavers. Will not work on all screensavers.
+
+color                   -set color override for themes
+                        -example: color=green
+
+convert                 -convert=midi to convert midi files to audio.
+                        -experimetal feature
+                        -Disabled for now. Was too buggy.
+
+dancing                 -dancing=on/off to toggle dancing errors.
+  (or dancing-errors)   -makes error messages stand out more
+                        -useful on larger terminals
+
+debug                   -debug=on/off to toggle debug mode.
+                        -changes help screen to debug, press 'h' to toggle view
+                        -Most useful thing here for end users is total playlist
+                         running time and size.
+                        -Running time requires metadata to be enabled
+
+delay                   -set the app delay, larger delays can reduce cpu usage
+                        but can also cause lag. Range is .001 to .05
+                        -example: delay=.02
+
+elapsed                 -sets playback counter to elapsed or remaining time
+                        -to count elapsed time, elapsed=on
+                        -to count remaining time, elapsed=off
+
+export                  -export=music to export (copy) files in your current
+                        playlist to a new directory.
+                        -Experimental feature, use it at your own risk!
+
+filter                  -filters playlist. Can filter by attribute.
+                        -possible attributes include name, title, artist,
+                        album, genre, year, ext
+                        -if you're doing a lot of filtering, you may want to 
+                        do it here to take advantage of the command history
+                        -example: filter=ext=mp3
+
+find                    -find song based on your input. Case insensitve.
+                        -example: find=ff6
+
+fps                     -changes screensaver speed.
+                        -Works inconsistently, use speed command instead
+                        -Though you can use both for more extreme changes
+
+fx                      -apply various audio fx, up to 4 can be combined into
+                         an fx chain. See ABOUT_FX.txt for more information.
+                        -fx=none will turn off all fx
+
+getattr                 -only works in debug mode. Allows you to view various
+                        app attributes and comments of current file.
+                        -example: getattr=comment
+
+kiosk                   -kiosk=on/off to toggle kiosk mode
+  (or kiosk-mode)       -turns off all keyboard input except 'C'.
+                        -note that keyboard interrupt is not blocked
+
+looping                 -looping=on/off to toggle playlist looping
+                        -if looping is off, the player stops once the
+                        playlist is complete
+
+mark                    -mark songs by (partial) name
+                        -will also search other attributes if metadata is on
+                        -example: mark=narshe
+
+midi (or soundfont)     -change the midi config (soundfont) used by midi files
+                        -this requires a bit of setup to work properly
+                        -add soundfonts to ~/.config/mplay/timidity/soundfonts
+                        -then create timidity config files that point to 
+                        these soundfonts (one config file per soundfont)
+                        -example of timidity config:
+                           dir ~/.config/mplay/timidity/soundfonts
+                           soundfont FluidR3_GM.sf2
+                        -and give the config files short names (such as fluid)
+                        and save to "~/.config/mplay/timidity"
+                        -example: midi=fluid
+
+norm (or normalize)     -normalizes audio, makes volumes more consistent
+                        -Depreciated, use fx=normalize instead
+
+pageflip                -pageflip=on/off to toggle page flipping
+                        -pageflip is on by default
+                        -mplay will scroll when page flipping is off
+                        -similar command 'scroll', does the opposite
+
+particle                -overrides particles used by most screensavers
+                        -this can be a text character or unicode value
+                        -particle=none turns off overrides
+                        -example: particle=9603
+
+pause                   -pause music with pause=true
+                        -Depreciated, use play=pause instead
+
+play                    -control playback. Possible arguments are prev, next,
+                        pause, stop.
+                        -You can also enter a (partial) song name to find and 
+                        play a song in your playlist.
+                        -example: play=ff6opera
+ 
+playmode (or mode)      -change playlist play mode, args can be play-all,
+                        one-shot, or random
+                        -use one-shot when auditioning short audio samples
+
+probe                   -probe=now to use ffprobe on selected song
+                        -metadata must be enabled for this to work
+
+probelist               -probelist=clear to clear all probe lists and
+                        temporarily stop probing
+
+quit                    -quit mplay with quit=now
+
+reverse                 -reverse=on/off to toggle reverse
+                        -this reverses theme colors when possible
+
+screen                  -screen=clear to clear (redraw) screen
+                        -use this to remove stuck characters
+
+screensaver             -change screensaver by name or number
+  (or saver, or s)      -also allows you to access the bonus screensavers
+                        -examples:
+                            screensaver=artists
+                            screensaver=bubbles
+                            screensaver=drip
+                            screensaver=frame 
+                            screensaver=snow
+                            screensaver=random
+                            screensaver=none
+
+screensaver-time        -sets screensaver activation time
+  (or time)             -example: time=20
+
+scroll                  -scroll=on/off to toggle scrolling
+                        -when on, mplay will scroll similar to cplay 
+                        -mplay will pageflip when scrolling is off
+                        -similar command 'pageflip', does the opposite
+
+search                  -search=dup to find and mark duplicate items in 
+                        a playlist
+                        -can take a while if your playlist is large
+
+seek (or skip)          -seek forward or backward (by given minutes) if audio
+                        supports it. Negative values seek backwards.
+                        example: seek=1
+
+shuffle                 -Shuffle playlist with shuffle=on, or sort by the
+                        playlist position with shuffle=off
+                        -playlist_pos doesn't exist until a playlist is
+                        saved or opened
+
+sort (or sortby)        -sort music by given attribute
+                        -possible attributes include name, title, artist,
+                        album, genre, year, ext, size, duration, playlist_pos
+
+speed                   -changes speed of screensaver
+                        -range is -4 to 4
+                        -screensavers using the Plankton Engine will change to
+                        vertical movement when speed < .25 and > -.25
+                        -speed=1 or speed=none to reset
+
+standout                -standout=on/off to toggle entry standout
+  (or entry-standout)   -makes input fields stand out more than normal
+                        -useful on large terminals
+
+stars                   -stars=on/off to toggle stars used by some screensavers
+
+static                  -static=on to always display static similar to what is
+                        seen in the modem screensaver. This may cause the
+                        interface to lag on slower computers
+
+stats (or statbar)      -stats=on/off to toggle the stat bar
+  (or stat-bar)         -shows various system stats (requires psutil)
+                        -will show probing status if metadata is enabled and
+                        the terminal is wide enough
+                        -sync targets will show particle totals instead
+
+stream                  -paste in an icecast stream to play it without adding
+                        it to a playlist
+                        -example: stream=http://path/to/stream
+
+tag                     -apply music tags if music-tag is enabled
+                        -Can tag title, artist, album, genre, year
+                        -example: tag=artist
+
+theme                   -changes theme
+                        -range is 0 to 8, 0 is the custom theme
+                        -example: theme=5
+
+unfilter                -unfliter playlists
+                        -Depreciated, use filter=none instead
+
+volume                  -change playback volume, range is 0 to 130
+  (or vol, or v)        -values larger than 100 may cause distortion
+                        -If midi file is playing, this will restart it
+                        -example: vol=90
+
+wandering               -wandering=on/off to toggle wandering stars used by
+                        some screensavers
+
+highpass                -cuts everything below given frequency
+                        -example: highpass=2000
+
+laser                   -laser=on/off to toggle lasers used by some
+                        screensavers
+
+lowpass                 -cuts everything above given frequency
+                        -example: lowpass=1000
+
+pitch                   -change pitch of song, range between .5 and 2
+                        -values larger than 1.5 may cause playback to fail
+
+tempo                   -change tempo of song, range between .5 and 2
+
+view (or list)          -change list view
+                        -example: view=custom1
+
+THEME HACKS
+main                    -override custom_theme_style_main
+                        -example: main=yellow_on_black+bold+underline
+
+header                  -override custom_theme_style_header
+                        -example: header=green
+
+bars                    -override custom_theme_style_bars
+                        -example: bars=red_on_blue+dim+reverse
+
+selected                -override custom_theme_style_selected
+
+playing                 -override custom_theme_style_playing
+
+icons                   -override custom_theme_style_icons
+
