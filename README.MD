@@ -13,6 +13,10 @@ Because I wanted a player that was similar to the classic cplay, but more visual
 
 <br/>
 
+Watch the 'ad' on ![youtube](https://youtu.be/3WKm1UK3PpU)
+
+<br/>
+
 Install Instructions (Mint/Ubuntu/Debian):
 -------------------------------------------------------------------------------
 1. Download and unzip ![mplay-main.zip](https://github.com/unpythonic-coder/mplay/archive/refs/heads/main.zip)
