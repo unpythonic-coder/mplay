@@ -9,13 +9,13 @@ So why another music player?
 -------------------------------------------------------------------------------
 Because I wanted a player that was similar to the classic cplay, but more visually appealing, with themes and screensavers, and  could play just about any audio file, including tracker formats and midi. And as a musician, I wanted a player that I could use to audition my own songs and samples, and then launch them directly into Audacity, Milkytracker, or LMMS.
 
-![screenshot](screenshot.png)
+![screenshot](screenshot_scale50.png)
 
 <br/>
 
 Install Instructions (Mint/Ubuntu/Debian):
 -------------------------------------------------------------------------------
-1. Unzip ![mplay-main.zip](https://github.com/unpythonic-coder/mplay/archive/refs/heads/main.zip) and extract/unzip the file
+1. Download and unzip ![mplay-main.zip](https://github.com/unpythonic-coder/mplay/archive/refs/heads/main.zip)
 
 2. Open a terminal in the mplay directory (mplay-main)
 
